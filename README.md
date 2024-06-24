@@ -1,3 +1,12 @@
+## group02_handcrafted_haven
+
+Group Project in WDD 430 For Byu Idaho
+
+James Charlie Salva
+Sigrid Valeria Müller Vidal
+Crystal Hatsumi Cárdenas Godoy
+Helamã Anderson Quirino Rodrigues
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
