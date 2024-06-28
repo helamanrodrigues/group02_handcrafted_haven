@@ -1,28 +1,39 @@
 .nav {
     display: flex;
+    align-items: center;
 }
   
 .navLinksLeft {
     list-style: none;
-    display: flex;
+    display: none; 
     gap: 1rem;
-    margin-right: 2rem; 
+    margin-right: 4rem;
 }
   
 .navLinksRight {
     list-style: none;
-    display: flex;
+    display: none; 
     gap: 1rem;
-    margin-left: 2rem; 
+    margin-left: 4rem;
 }
   
 .navLinksLeft li a,
 .navLinksRight li a {
-    color: #fff;
+    color:#030303;
     text-decoration: none;
+    font-size: 14px;
 }
   
 .navLinksLeft li a:hover,
 .navLinksRight li a:hover {
     text-decoration: underline;
-}
+  }
+  
+  
+  @media (min-width: 600px) {
+ 
+    .navLinksLeft,
+    .navLinksRight {
+      display: flex;
+    }
+  }

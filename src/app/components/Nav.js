@@ -18,10 +18,10 @@ const Nav = ({ side }) => {
         {side === "right" && (
           <>
             <li>
-              <Link href="/services">Services</Link>
+              <Link href="/contact">Contact</Link>
             </li>
             <li>
-              <Link href="/contact">Contact</Link>
+              <Link href="/events">Events</Link>
             </li>
           </>
         )}
