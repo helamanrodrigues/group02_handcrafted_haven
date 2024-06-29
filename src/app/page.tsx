@@ -4,6 +4,22 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <main className={styles.main}>
+      <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
+        <Image
+          src="/hero-desktop.jpg"
+          width={1200}
+          height={798}
+          className={ styles.hero_desk}
+          alt="A person meticulously hand-crafting beautiful pottery vessels"
+        />
+        <Image
+        src="/hero-mobile.jpg"
+        width={600}
+        height={400}
+        className={ styles.hero_mob}
+        alt="A craftsperson meticulously weaving a macrame wall hanging"
+        />
+      </div>
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;

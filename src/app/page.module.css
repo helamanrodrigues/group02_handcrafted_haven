@@ -203,10 +203,23 @@
   }
 }
 
-/* Tablet and Smaller Desktop */
-@media (min-width: 701px) and (max-width: 1120px) {
+.hero_desk {
+  display: none;
+}
+.hero_mob {
+  display: block;
+}
+
+/* Tablet and Desktop */
+@media (min-width: 700px) {
   .grid {
     grid-template-columns: repeat(2, 50%);
+  }
+  .hero_desk {
+    display: block;
+  }
+  .hero_mob {
+    display: none;
   }
 }
 
