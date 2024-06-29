@@ -1,0 +1,16 @@
+.img {
+    width: auto;
+    height: auto;
+    border-bottom: 2px solid #2C2F1A;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: #F1F0ED;
+    border: 2px solid #2C2F1A;
+    border-radius: 3px;
+}
+.container h2 {
+    text-align: center;
+    color: black;
+}
