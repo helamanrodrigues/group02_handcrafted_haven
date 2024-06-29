@@ -1,0 +1,28 @@
+.nav {
+    display: flex;
+}
+
+.navLinksLeft {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin-right: 2rem; 
+}
+
+.navLinksRight {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin-left: 2rem; 
+}
+
+.navLinksLeft li a,
+.navLinksRight li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navLinksLeft li a:hover,
+.navLinksRight li a:hover {
+    text-decoration: underline;
+}
