@@ -1,10 +1,11 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import Feature from "../../components/feature";
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
+      <div>
         <Image
           src="/hero-desktop.jpg"
           width={1200}
@@ -20,6 +21,11 @@ export default function Home() {
         alt="A craftsperson meticulously weaving a macrame wall hanging"
         />
       </div>
+      <div className={styles.feature_container}>
+          <Feature></Feature>
+          <Feature></Feature>
+          <Feature></Feature>
+        </div>
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
