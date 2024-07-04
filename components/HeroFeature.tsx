@@ -3,10 +3,12 @@
 import styles from "../styles/Home.module.css";
 import Image from "next/image"; // Ensure you have this import
 import Feature from "../components/Feature"; // Assuming Feature is a custom component
+import FreeShippingText from './header/FreeShippingText';
 
 const Hero: React.FC = () => {
   return (
     <div>
+      <FreeShippingText/>
       <div>
         <Image
           src="/hero-desktop.jpg"

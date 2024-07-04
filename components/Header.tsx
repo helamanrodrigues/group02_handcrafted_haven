@@ -13,6 +13,7 @@ const Header = () => {
         <Nav side="right" />
       </div>
     </header>
+    
   );
 };
 
