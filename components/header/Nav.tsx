@@ -24,7 +24,7 @@ const Nav: React.FC<NavProps> = ({ side }) => {
         {side === "right" && (
           <>
             <li>
-              <Link href="/services">Services</Link>
+              <Link href="/product-listing">Product Listing</Link>
             </li>
             <li>
               <Link href="/contact">Contact</Link>
