@@ -1,7 +1,11 @@
 import Link from "next/link";
 import styles from "../../styles/Nav.module.css";
 
-const Nav = ({ side }) => {
+interface NavProps {
+  side: "left" | "right";
+}
+
+const Nav: React.FC<NavProps> = ({ side }) => {
   return (
     <nav className={styles.nav}>
       <ul
@@ -20,7 +24,7 @@ const Nav = ({ side }) => {
         {side === "right" && (
           <>
             <li>
-              <Link href="/services">Services</Link>
+              <Link href="/product-listing">Product Listing</Link>
             </li>
             <li>
               <Link href="/contact">Contact</Link>
@@ -33,3 +37,4 @@ const Nav = ({ side }) => {
 };
 
 export default Nav;
+
