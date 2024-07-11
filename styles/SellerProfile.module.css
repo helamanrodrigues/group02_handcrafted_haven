@@ -1,0 +1,33 @@
+.img {
+    width: 100%;
+    height: auto;
+}
+.imgContainer {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    justify-self: right;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: #F1F0ED;
+    align-items: center;
+}
+.container h2 {
+    text-align: left;
+    color: black;
+}
+
+.presentation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 80%;
+    gap: 20px;
+    align-items: center;
+    padding: 30px;
+}
+.about {
+    background-color: #E0DCD3;
+    padding: 30px;
+}

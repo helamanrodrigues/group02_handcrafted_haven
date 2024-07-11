@@ -1,0 +1,12 @@
+.filled {
+    background-color: #2C2F1A;
+    color: #F1F0ED;
+    padding: 5px;
+    margin: 5px;
+}
+.border {
+    border: 2px solid #2C2F1A;
+    color: #2C2F1A;
+    padding: 5px;
+    margin: 5px;
+}
