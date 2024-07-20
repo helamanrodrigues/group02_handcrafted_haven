@@ -8,12 +8,12 @@ import FreeShippingText from '../components/header/FreeShippingText';
 
 const ProductListingPage: React.FC = () => {
   return (
-    <div>
+    <main>
       <Header />
       <FreeShippingText/>
       <ProductListing />
       <Footer />
-    </div>
+    </main>
   );
 };
 
