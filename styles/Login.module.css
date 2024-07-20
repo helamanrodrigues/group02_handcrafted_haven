@@ -1,0 +1,42 @@
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+  
+.container h2 {
+    margin-bottom: 1rem;
+}
+  
+.container form {
+    display: flex;
+    flex-direction: column;
+}
+  
+.container form label {
+    margin-bottom: 0.5rem;
+}
+  
+.container form input {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+}
+  
+.container form button {
+    padding: 0.5rem;
+    border: none;
+    background-color: #0071ff;
+    color: white;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+  
+.container form button:hover {
+    background-color: #005bb5;
+}
+  
