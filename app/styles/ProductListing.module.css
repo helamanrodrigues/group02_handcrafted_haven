@@ -1,22 +1,38 @@
 .productPage {
   display: flex;
+  margin: 20px;
+  gap: 20px; 
 }
 
 .sidebar {
   width: 20%;
   padding: 20px;
   background-color: #f4f4f4;
+  border-right: 1px solid #ddd;
 }
 
 .filterSection {
   margin-bottom: 20px;
 }
 
+.filterSection h4 {
+  margin-bottom: 10px;
+}
+
+.filterSection select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box; 
+}
+
 .productListing {
-  display: flex;
-  flex-direction: column;
   width: 80%;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .filterControls {
@@ -30,15 +46,25 @@
 .filterControls select {
   padding: 10px;
   font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
-.container {
+.filterControls button {
+  background-color: #0070f3;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.filterControls button:hover {
+  background-color: #005bb5;
+}
+
+.products {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
-  justify-content: center;
-  margin-top: 30px;
-  margin-bottom: 30px;
 }
 
 .productCard {
@@ -57,16 +83,20 @@
 
 .productImage {
   border-radius: 8px;
+  width: 100%;
+  height: auto;
 }
 
 .productTitle {
   font-size: 1.2em;
   margin: 10px 0;
+  font-weight: bold;
 }
 
 .productDescription {
   font-size: 1em;
   color: #555;
+  margin: 10px 0;
 }
 
 .productPrice {
@@ -80,18 +110,45 @@
   margin: 20px auto;
   padding: 10px 20px;
   font-size: 16px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.loadMore:hover {
+  background-color: #005bb5;
 }
 
 @media (min-width: 700px) {
-  .container {
-    grid-template-columns: repeat(2, 1fr);
+  .sidebar {
+    width: 25%;
   }
 }
 
 @media (min-width: 1024px) {
-  .container {
-    grid-template-columns: repeat(3, 1fr);
+  .productListing {
+    width: 75%;
   }
 }
+
+@media (max-width: 700px) {
+  .productPage {
+    flex-direction: column; 
+  }
+
+  .sidebar {
+    width: 100%; 
+    border-right: none; 
+    border-bottom: 1px solid #ddd; 
+  }
+
+  .productListing {
+    width: 100%; 
+  }
+}
+
+
 
 

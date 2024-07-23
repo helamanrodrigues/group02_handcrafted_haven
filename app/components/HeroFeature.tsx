@@ -16,6 +16,7 @@ const Hero: React.FC = () => {
           height={798}
           className={styles.hero_desk}
           alt="A person meticulously hand-crafting beautiful pottery vessels"
+          priority
         />
         <Image
           src="/hero-mobile.jpg"

@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Login from '../components/Login';
+import Header from '../app/components/Header';
+import Footer from '../app/components/Footer';
+import Login from '../app/components/Login';
 
 const LoginPage: React.FC = () => {
   return (

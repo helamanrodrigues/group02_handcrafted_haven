@@ -1,8 +1,7 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from '../styles/ProductListing.module.css';
-import { fetchProducts } from '../lib/data';
-
 
 interface Product {
   id: number;
@@ -13,7 +12,7 @@ interface Product {
   category: string;
 }
 
-export default async function ProductListing() {
+const ProductListing = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
   const [sortBy, setSortBy] = useState<string>('');
@@ -22,18 +21,47 @@ export default async function ProductListing() {
   const [loadMoreCount, setLoadMoreCount] = useState<number>(10);
 
   useEffect(() => {
-    // Fetching products from API or any source
     const fetchProducts = async () => {
-      const response = await fetch('/api/products'); // Replace with your API endpoint
-      const data = await response.json();
-      console.log("product from db: ", products);
-      console.log("productlisting: ", data);
-      setProducts(data);
-      setDisplayedProducts(data.slice(0, loadMoreCount));
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setProducts(data);
+        setDisplayedProducts(data.slice(0, loadMoreCount));
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
     };
 
     fetchProducts();
   }, [loadMoreCount]);
+
+  useEffect(() => {
+    const filterAndSortProducts = () => {
+      let filteredProducts = [...products];
+      if (category) {
+        filteredProducts = filteredProducts.filter((product) => product.category === category);
+      }
+      if (priceRange) {
+        const [min, max] = priceRange.split('-').map(Number);
+        filteredProducts = filteredProducts.filter((product) => product.price >= min && product.price <= max);
+      }
+      if (sortBy) {
+        if (sortBy === 'price-asc') {
+          filteredProducts.sort((a, b) => a.price - b.price);
+        } else if (sortBy === 'price-desc') {
+          filteredProducts.sort((a, b) => b.price - a.price);
+        } else if (sortBy === 'newest') {
+          filteredProducts.sort((a, b) => b.id - a.id);
+        }
+      }
+      setDisplayedProducts(filteredProducts.slice(0, loadMoreCount));
+    };
+
+    filterAndSortProducts();
+  }, [category, priceRange, sortBy, products, loadMoreCount]);
 
   const handleClearAll = () => {
     setSortBy('');
@@ -46,27 +74,6 @@ export default async function ProductListing() {
     setLoadMoreCount((prevCount) => prevCount + 10);
   };
 
-  useEffect(() => {
-    let filteredProducts = [...products];
-    if (category) {
-      filteredProducts = filteredProducts.filter((product) => product.category === category);
-    }
-    if (priceRange) {
-      const [min, max] = priceRange.split('-').map(Number);
-      filteredProducts = filteredProducts.filter((product) => product.price >= min && product.price <= max);
-    }
-    if (sortBy) {
-      if (sortBy === 'price-asc') {
-        filteredProducts.sort((a, b) => a.price - b.price);
-      } else if (sortBy === 'price-desc') {
-        filteredProducts.sort((a, b) => b.price - a.price);
-      } else if (sortBy === 'newest') {
-        filteredProducts.sort((a, b) => b.id - a.id);
-      }
-    }
-    setDisplayedProducts(filteredProducts.slice(0, loadMoreCount));
-  }, [category, priceRange, sortBy, products, loadMoreCount]);
-
   return (
     <div className={styles.productPage}>
       <aside className={styles.sidebar}>
@@ -75,8 +82,8 @@ export default async function ProductListing() {
           <h4>Category</h4>
           <select value={category} onChange={(e) => setCategory(e.target.value)}>
             <option value="">All</option>
-            <option value="category1">Category 1</option>
-            <option value="category2">Category 2</option>
+            <option value="Pottery">Pottery</option>
+            <option value="Macrame">Macrame</option>
           </select>
         </div>
         <div className={styles.filterSection}>
@@ -100,7 +107,7 @@ export default async function ProductListing() {
         </div>
         <div className={styles.products}>
           {displayedProducts.map((product) => (
-            <div key={product.id} className={styles.productCard}>
+            <Link key={product.id} href={`/product-listing/product/${product.id}`} className={styles.productCard}>
               <Image
                 src={product.image}
                 alt={product.title}
@@ -111,7 +118,7 @@ export default async function ProductListing() {
               <h3 className={styles.productTitle}>{product.title}</h3>
               <p className={styles.productDescription}>{product.description}</p>
               <p className={styles.productPrice}>${product.price}</p>
-            </div>
+            </Link>
           ))}
         </div>
         {displayedProducts.length < products.length && (
@@ -121,3 +128,7 @@ export default async function ProductListing() {
     </div>
   );
 };
+
+export default ProductListing;
+
+
