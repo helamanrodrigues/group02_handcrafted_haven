@@ -38,15 +38,16 @@ async function seedProducts() {
       title VARCHAR(255) NOT NULL,
       description VARCHAR(2000) NOT NULL,
       price INT NOT NULL,
-      image VARCHAR(255) NOT NULL
+      image VARCHAR(255) NOT NULL,
+      category VARCHAR(255) NOT NULL
     );
   `;
 
   const insertedProducts = await Promise.all(
     products.map(
       (product) => { client.sql`
-        INSERT INTO products (title, description, price, image)
-        VALUES (${product.title}, ${product.description}, ${product.price}, ${product.image})
+        INSERT INTO products (id, title, description, price, image, category)
+        VALUES (${product.id}, ${product.title}, ${product.description}, ${product.price}, ${product.image}, ${product.category})
         ON CONFLICT (id) DO NOTHING;
       `;
     }),

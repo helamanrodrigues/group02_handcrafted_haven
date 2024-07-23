@@ -17,18 +17,20 @@ const users = [
 
 const products = [
   {
-    id: 'bd214449-4df1-4770-b7e4-0d9d19000551',
+    id: '67d48690-da5a-40fc-8dd5-41058a45746e',
     title: 'Handcrafted Pottery',
     description: 'Beautifully handcrafted pottery made with love.',
     price: 45.00,
     image: '/images/pottery.jpg',
+    category: 'pottery',
   },
   {
-    id: 'bd214449-4df1-4770-b7e4-0d9d19000551',
+    id: '5d20d01c-c013-4932-9c2a-42ed0388fb98',
     title: 'Woven Macrame',
     description: 'Intricate woven macrame for your home decor.',
     price: 30.00,
     image: '/images/macrame.jpg',
+    category: 'macrame',
   },
 ]
 
