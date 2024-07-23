@@ -1,10 +1,10 @@
 "use client";
 
 import React from 'react';
-import ProductListing from '../components/ProductListing';
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import FreeShippingText from '../components/header/FreeShippingText';
+import ProductListing from '../app/components/ProductListing';
+import Footer from "../app/components/Footer";
+import Header from "../app/components/Header";
+import FreeShippingText from '../app/components/header/FreeShippingText';
 
 const ProductListingPage: React.FC = () => {
   return (
