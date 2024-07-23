@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Image from 'next/image';
 import styles from '../styles/ProductListing.module.css';
+import { fetchProducts } from '../lib/data';
+
 
 interface Product {
   id: number;
@@ -11,7 +13,7 @@ interface Product {
   category: string;
 }
 
-const ProductListing: React.FC = () => {
+export default async function ProductListing() {
   const [products, setProducts] = useState<Product[]>([]);
   const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
   const [sortBy, setSortBy] = useState<string>('');
@@ -24,6 +26,8 @@ const ProductListing: React.FC = () => {
     const fetchProducts = async () => {
       const response = await fetch('/api/products'); // Replace with your API endpoint
       const data = await response.json();
+      console.log("product from db: ", products);
+      console.log("productlisting: ", data);
       setProducts(data);
       setDisplayedProducts(data.slice(0, loadMoreCount));
     };
@@ -117,5 +121,3 @@ const ProductListing: React.FC = () => {
     </div>
   );
 };
-
-export default ProductListing;

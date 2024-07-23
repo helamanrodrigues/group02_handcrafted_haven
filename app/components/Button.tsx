@@ -4,6 +4,7 @@ interface ButtonProps {
     name: string;
 }
 
+// Type can be filled or border
 export default function Button(props: ButtonProps) {
     const { type, name } = props;
     return (
