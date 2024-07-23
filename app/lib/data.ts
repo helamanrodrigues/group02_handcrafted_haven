@@ -36,14 +36,28 @@ export async function fetchRevenue() {
 export async function fetchProducts() {
   try {
     const data = await sql<Product>`
-      SELECT product.title, product.description, product.price, product.image
+      SELECT *
       FROM products
-      ORDER BY product.title ASC`;
+      ORDER BY products.title ASC`;
 
     return data.rows;
   } catch (error) {
     console.error('Database Error:', error);
-    throw new Error('Failed to fetch the latest invoices.');
+    throw new Error('Failed to fetch products.');
+  }
+}
+
+export async function getCategories() {
+  try {
+    const data = await sql`
+      SELECT category
+      FROM products
+      GROUP BY category;`;
+
+    return data.rows;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch products\' categories.');
   }
 }
 
