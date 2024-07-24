@@ -38,7 +38,7 @@ async function seedProducts() {
       title VARCHAR(255) NOT NULL,
       description VARCHAR(2000) NOT NULL,
       price INT NOT NULL,
-      image VARCHAR(255) NOT NULL,
+      image VARCHAR(2083) NOT NULL,
       category VARCHAR(255) NOT NULL
     );
   `;

@@ -21,7 +21,7 @@ const products = [
     title: 'Handcrafted Pottery',
     description: 'Beautifully handcrafted pottery made with love.',
     price: 45.00,
-    image: '/images/pottery.jpg',
+    image: 'https://www.pagepottery.com/images/products/large_797_turFallsMug1.jpg',
     category: 'pottery',
   },
   {
@@ -29,8 +29,16 @@ const products = [
     title: 'Woven Macrame',
     description: 'Intricate woven macrame for your home decor.',
     price: 30.00,
-    image: '/images/macrame.jpg',
+    image: 'https://d2s9i74h8duohm.cloudfront.net/wp-content/uploads/2021/09/Woven_Macrame_Wall_Art_3.jpg',
     category: 'macrame',
+  },
+  {
+    id: '5d20d01c-c013-4932-9c2a-42ed0388fb9c',
+    title: 'test title',
+    description: 'Intricate woven macrame for your home decor.',
+    price: 30.00,
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiaPOXwHViC00R8h4mO8s_FbaA8Io8mb1-EQ&s',
+    category: 'knitting',
   },
 ]
 
