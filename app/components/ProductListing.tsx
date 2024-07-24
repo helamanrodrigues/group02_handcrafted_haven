@@ -2,10 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from '../styles/ProductListing.module.css';
-import { Product } from '../lib/definitions';
+import { Category, Product } from '../lib/definitions';
+import FilterCategory from './FilterCategory';
 
 
-export default function ProductList({ fetchedproducts }: { fetchedproducts: Product[]} ) {
+export default function ProductList({ fetchedproducts, fetchedcategories }: { fetchedproducts: Product[], fetchedcategories: Category[]} ) {
   if (!fetchedproducts || fetchedproducts.length === 0) {
     return <p>No products found.</p>;
   }
@@ -70,8 +71,11 @@ export default function ProductList({ fetchedproducts }: { fetchedproducts: Prod
                 <h4>Category</h4>
                 <select value={category} onChange={(e) => setCategory(e.target.value)}>
                     <option value="">All</option>
-                    <option value="category1">Category 1</option>
-                    <option value="category2">Category 2</option>
+                    {fetchedcategories?.map((item) => (
+                      <option value={item.category}>{item.category}</option>
+                    ))}
+                    {/* <option value="category1">Category 1</option>
+                    <option value="category2">Category 2</option> */}
                 </select>
                 </div>
                 <div className={styles.filterSection}>
@@ -82,6 +86,7 @@ export default function ProductList({ fetchedproducts }: { fetchedproducts: Prod
                     <option value="51-100">$51 - $100</option>
                 </select>
                 </div>
+                <FilterCategory categories={fetchedcategories}/>
             </aside>
             <div className={styles.productListing}>
                 <div className={styles.filterControls}>
@@ -96,11 +101,12 @@ export default function ProductList({ fetchedproducts }: { fetchedproducts: Prod
                 <div className={styles.products}>
                         {fetchedproducts.map((product) => (
                           <div key={product.id} className={styles.productCard}>
-                            <Image
+                            <img 
                               src={product.image}
                               alt={product.title}
-                              width={300}
-                              height={200}
+                              // width={300}
+                              // height={200}
+                              // layout={'responsive'}
                               className={styles.productImage}
                             />
                             <h3 className={styles.productTitle}>{product.title}</h3>

@@ -1,4 +1,5 @@
 import { sql } from '@vercel/postgres';
+import { unstable_noStore as noStore } from 'next/cache';
 import {
   CustomerField,
   CustomersTableType,
@@ -8,6 +9,8 @@ import {
   User,
   Revenue,
   Product,
+  Category,
+  ProductCard,
 } from './definitions';
 import { formatCurrency } from './utils';
 
@@ -35,11 +38,12 @@ export async function fetchRevenue() {
 
 export async function fetchProducts() {
   try {
+    noStore();
     const data = await sql<Product>`
       SELECT *
       FROM products
       ORDER BY products.title ASC`;
-
+      console.log(data.rows);
     return data.rows;
   } catch (error) {
     console.error('Database Error:', error);
@@ -49,7 +53,7 @@ export async function fetchProducts() {
 
 export async function getCategories() {
   try {
-    const data = await sql`
+    const data = await sql<Category>`
       SELECT category
       FROM products
       GROUP BY category;`;

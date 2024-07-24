@@ -17,7 +17,19 @@ export type Product = {
     image: string;
     category: string;
   };
-  
+
+export type ProductCard = {
+    title: string;
+    description: string;
+    price: number;
+    image: string;
+    category: string;
+  };
+
+export type Category = {
+  category: string;
+}
+
 export type Customer = {
     id: string;
     name: string;
